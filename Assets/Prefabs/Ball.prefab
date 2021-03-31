@@ -235,8 +235,7 @@ MonoBehaviour:
   speed: 5
   randomizationLunchAngle: 6.99
   hitSounds:
-  - {fileID: 8300000, guid: e3687c53a24ea0f4091c17eeeac0aaa1, type: 3}
-  - {fileID: 8300000, guid: 8f47d2875a8572545b84560e359794e2, type: 3}
   - {fileID: 8300000, guid: 267f4ae45e4b8fb4e99b6a21a276e478, type: 3}
   - {fileID: 8300000, guid: d60ae671e3fcd3741a6bd501d9854eed, type: 3}
   - {fileID: 8300000, guid: 70d68a0961e0e404ab30290ecc19dc97, type: 3}
+  - {fileID: 8300000, guid: e3687c53a24ea0f4091c17eeeac0aaa1, type: 3}
