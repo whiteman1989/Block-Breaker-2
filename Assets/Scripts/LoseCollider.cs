@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LoseCollider : MonoBehaviour
 {
+    [SerializeField]
+    private bool isGameOverTriger = false;
     private SceneLoader sceneLoader;
 
     private void Start()
@@ -16,8 +18,11 @@ public class LoseCollider : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            sceneLoader?.LoadGameOver();
-            Debug.Log("Ball collide");
+            Destroy(collision.gameObject, 1f);
+            if(isGameOverTriger)
+            {
+                sceneLoader?.LoadGameOver();
+            }
         }
     }
 }

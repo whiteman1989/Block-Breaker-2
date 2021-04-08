@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
 {
     [Header("Gameplay setings")]
     [SerializeField]
-    private Paddle firstPaddle;
+    private Paddle parentPaddle;
     [SerializeField]
     private float speed = 1;
     [SerializeField]
@@ -29,6 +29,7 @@ public class Ball : MonoBehaviour
 
     private Rigidbody2D myRigidbody;
     private AudioSource audioSource;
+    private Level level;
     private Vector2 toPaddleVector;
     private bool isLocked = true;
     private Vector2 lastVelocity;
@@ -39,6 +40,8 @@ public class Ball : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         LockBall();
         audioSource = GetComponent<AudioSource>();
+        level = Object.FindObjectOfType<Level>();
+        level.AddBall(this);
         lastVelocity = myRigidbody.velocity;
     }
 
@@ -79,6 +82,11 @@ public class Ball : MonoBehaviour
         RepeatHandle();
     }
 
+    private void OnDestroy()
+    {
+        level.RemoveBall(this);
+    }
+
 
     public void LunchBall()
     {
@@ -101,12 +109,12 @@ public class Ball : MonoBehaviour
 
     private void GetLockRelationPosition()
     {
-        toPaddleVector = transform.position - firstPaddle.transform.position;
+        toPaddleVector = transform.position - parentPaddle.transform.position;
     }
 
     private void LockBallProcess()
     {
-        transform.position = (Vector2)firstPaddle.transform.position + toPaddleVector;
+        transform.position = (Vector2)parentPaddle.transform.position + toPaddleVector;
     }
 
     private void SpeedControlProcess()
@@ -135,5 +143,10 @@ public class Ball : MonoBehaviour
         float randomAngle = Random.Range(-randomizeLoppAngle, randomizeLoppAngle);
         myRigidbody.velocity = (myRigidbody.velocity.GetRotatefdVector2(randomAngle));
         Debug.Log($"Loop #${curentLoppBounces} prevented, correction angele is {randomAngle}");
+    }
+
+    public void SetParrent(Paddle paddle)
+    {
+        parentPaddle = paddle;
     }
 }

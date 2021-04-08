@@ -6,9 +6,13 @@ public class Level : MonoBehaviour
 {
     [ReadOnly]
     [SerializeField]
-    private int breakableBlocks;
+    private int breakableBlocks = 0;
+    [ReadOnly]
+    [SerializeField]
+    private int ballsCount = 0;
 
-    SceneLoader sceneLoader;
+    private SceneLoader sceneLoader;
+    private HashSet<Ball> balls = new HashSet<Ball>();
 
     private void Start()
     {
@@ -24,5 +28,20 @@ public class Level : MonoBehaviour
     {
         breakableBlocks--;
         if(breakableBlocks <=0) { sceneLoader.LoadNextScene(); }
+    }
+
+    public int AddBall(Ball ball)
+    {
+        balls.Add(ball);
+        ballsCount = balls.Count;
+        return ballsCount;
+    }
+
+    public int RemoveBall(Ball ball)
+    {
+        balls.Remove(ball);
+        ballsCount = balls.Count;
+        if (ballsCount <= 0) sceneLoader?.LoadGameOver();
+        return ballsCount;
     }
 }
