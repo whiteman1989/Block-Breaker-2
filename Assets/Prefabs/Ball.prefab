@@ -233,9 +233,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPaddle: {fileID: 0}
   speed: 5
-  randomizationLunchAngle: 6.99
+  randomizeLunchAngle: 5
+  maxBounveRepeat: 3
+  repeatAngleDetection: 2.5
   hitSounds:
   - {fileID: 8300000, guid: 267f4ae45e4b8fb4e99b6a21a276e478, type: 3}
   - {fileID: 8300000, guid: d60ae671e3fcd3741a6bd501d9854eed, type: 3}
   - {fileID: 8300000, guid: 70d68a0961e0e404ab30290ecc19dc97, type: 3}
   - {fileID: 8300000, guid: e3687c53a24ea0f4091c17eeeac0aaa1, type: 3}
+  randomizeLoppAngle: 5
+  curentLoppBounces: 0
