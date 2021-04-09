@@ -6,16 +6,21 @@ using TMPro;
 
 public class GameSession : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI scoreText;
 
+    [Header("Gameplay options")]
     [SerializeField, Range(0.0f, 5f)]
     private float gameSpeed = 1f;
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField]
+    private bool isAupoPlay = false;
+
 
     [ReadOnly]
     [SerializeField]
     private int currentScore = 0;
 
     public int CurentScore { get => currentScore; }
+    public bool IsAutoPlay { get => isAupoPlay; }
 
     private void Awake()
     {

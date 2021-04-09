@@ -125,7 +125,6 @@ public class Ball : MonoBehaviour
     private void RepeatHandle()
     {
         float angle = Vector2.Angle(myRigidbody.velocity, lastVelocity * -1);
-        Debug.Log($"Angle is: {angle}");
         if (angle <= repeatAngleDetection)
         {
             curentLoppBounces++;

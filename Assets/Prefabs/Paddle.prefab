@@ -106,7 +106,7 @@ PolygonCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   m_Points:
     m_Paths:
     - - {x: 0.5143023, y: 0.25035477}
@@ -130,3 +130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxX: 8
   minX: -8
+  paddleSpeed: 50
+  ballPrefab: {fileID: 353099377547197399, guid: 9a9598fa8434cf14b99aee304be17be7, type: 3}
+  spawnOffset: {x: 0, y: 0.5}

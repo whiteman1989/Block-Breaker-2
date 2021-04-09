@@ -13,6 +13,9 @@ public class Level : MonoBehaviour
 
     private SceneLoader sceneLoader;
     private HashSet<Ball> balls = new HashSet<Ball>();
+    private bool isWon = false;
+
+    public HashSet<Ball> Balls { get => balls; }
 
     private void Start()
     {
@@ -27,7 +30,11 @@ public class Level : MonoBehaviour
     public void BlockDestroyed()
     {
         breakableBlocks--;
-        if(breakableBlocks <=0) { sceneLoader.LoadNextScene(); }
+        if(breakableBlocks <=0) 
+        {
+            isWon = true;
+            sceneLoader.LoadNextScene(); 
+        }
     }
 
     public int AddBall(Ball ball)
@@ -41,7 +48,11 @@ public class Level : MonoBehaviour
     {
         balls.Remove(ball);
         ballsCount = balls.Count;
-        if (ballsCount <= 0) sceneLoader?.LoadGameOver();
+        if (ballsCount <= 0 && !isWon)
+        {
+            sceneLoader?.LoadGameOver();
+            Debug.Log($"Game over condition");
+        }
         return ballsCount;
     }
 }
