@@ -15,12 +15,10 @@ public class Magnet : MonoBehaviour
     [SerializeField]
     private Sprite enableSprite;
     private Sprite disableSprite;
-    [SerializeField]
-    private ParticleSystem particleSystem;
-
 
     private PointEffector2D pointEffector;
     private SpriteRenderer spriteRenderer;
+    private ParticleSystem particleSystem;
 
     // Start is called before the first frame update
     void Start()

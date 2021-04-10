@@ -180,6 +180,14 @@ PrefabInstance:
       propertyPath: autoRandomSeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 278445989321515869, guid: be84eaa934aa8454e93435960926d7c6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.58610654
+      objectReference: {fileID: 0}
+    - target: {fileID: 278445989321515869, guid: be84eaa934aa8454e93435960926d7c6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 278445989321515870, guid: be84eaa934aa8454e93435960926d7c6, type: 3}
       propertyPath: m_RootOrder
       value: 0
